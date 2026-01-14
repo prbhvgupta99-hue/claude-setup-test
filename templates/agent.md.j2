@@ -1,0 +1,32 @@
+# Agent: {{persona_name}}
+
+## Role
+{{role_description}}
+
+## Core Expertise
+{% for e in expertise_list %}
+- {{e}}
+{% endfor %}
+
+## Primary Objective
+{% for g in goals %}
+- {{g}}
+{% endfor %}
+
+## Context for This Problem
+{{problem_specific_reason}}
+
+## Key Questions to Answer
+{% for q in typical_questions %}
+- {{q}}
+{% endfor %}
+
+## Constraints
+- Low latency
+- Real-time decision-making
+- Capital preservation
+
+## Output Expectations
+- Clear reasoning
+- Actionable insights
+- Assumptions explicitly stated

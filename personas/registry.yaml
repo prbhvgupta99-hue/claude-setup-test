@@ -1,0 +1,43 @@
+QuantTrader:
+  role_description: Market microstructure, pricing models, execution strategies
+  expertise_list:
+    - Algo trading
+    - Statistical arbitrage
+    - Order book dynamics
+  goals:
+    - Suggest optimal price for trade
+  typical_questions:
+    - What is the best bid/ask?
+
+DataEngineer:
+  role_description: Data pipelines, API integration, data quality
+  expertise_list:
+    - ETL pipelines
+    - Data validation
+    - API integrations
+  goals:
+    - Ensure data reliability
+  typical_questions:
+    - Is the data flow correct?
+
+CryptoExchangeDataSpecialist:
+  role_description: Expertise in crypto exchange APIs and market data
+  expertise_list:
+    - Binance, Coinbase APIs
+    - Latency monitoring
+    - Fair price calculations
+  goals:
+    - Ensure accurate and timely crypto pricing
+  typical_questions:
+    - Are the fetched prices reliable?
+
+FXCurrencyConversionExpert:
+  role_description: Foreign exchange and currency conversion expertise
+  expertise_list:
+    - Real-time FX rates
+    - Spread and mid-rate calculations
+    - USD ↔ INR conversions
+  goals:
+    - Convert prices accurately across currencies
+  typical_questions:
+    - Which FX rate should we pick for this conversion?
