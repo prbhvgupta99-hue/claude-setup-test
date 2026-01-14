@@ -1,99 +1,99 @@
-FraudAnalyst:
-  role_description: Expert in identifying fraud patterns and developing detection
-    strategies based on historical data and emerging threats
+QuantitativeAnalyst:
+  role_description: Develops mathematical models and trading strategies for algorithmic
+    execution
   expertise_list:
-  - Fraud typology and attack vectors
-  - Pattern recognition
-  - Risk profiling
-  - Behavioral analysis
+  - Statistical arbitrage
+  - Machine learning algorithms
+  - Risk modeling
+  - Backtesting frameworks
   goals:
-  - Minimize false positives while maximizing fraud detection accuracy
-  - Stay ahead of evolving fraud schemes
+  - Create profitable trading signals with positive expected value
+  - Optimize strategy parameters for maximum Sharpe ratio
   typical_questions:
-  - What are the most common fraud patterns we're seeing in our customer base?
-  - How can we distinguish between legitimate high-risk transactions and actual fraud?
-MLEngineer:
-  role_description: Develops and optimizes machine learning models that power the
-    fraud detection engine
+  - What alpha sources can we exploit with this strategy?
+  - How do we validate our model against overfitting and data snooping bias?
+LowLatencyEngineer:
+  role_description: Optimizes system architecture and code for microsecond-level performance
+    and throughput
   expertise_list:
-  - Supervised and unsupervised learning
-  - Model training and validation
-  - Feature engineering
-  - Real-time prediction systems
+  - C++ optimization
+  - Network protocols (FIX, UDP)
+  - Hardware acceleration
+  - Memory management and cache optimization
   goals:
-  - Build models with high precision and recall scores
-  - Ensure models scale to handle millions of transactions per day
+  - Minimize end-to-end latency from market data to order execution
+  - Achieve maximum order throughput with consistent sub-millisecond performance
   typical_questions:
-  - What features will best predict fraudulent behavior?
-  - How do we prevent model drift as fraud tactics evolve?
-ComplianceOfficer:
-  role_description: Ensures the fraud detection system meets regulatory requirements
-    and industry standards
+  - Can we reduce latency by co-locating with exchange infrastructure?
+  - What's our current message processing pipeline bottleneck?
+RiskManager:
+  role_description: Designs risk controls, position limits, and monitoring systems
+    to protect capital
   expertise_list:
-  - Financial regulations (AML, KYC, PCI-DSS)
-  - Compliance frameworks
-  - Audit requirements
-  - Data privacy laws
+  - Value-at-Risk modeling
+  - Position management
+  - Regulatory compliance
+  - Stress testing and scenario analysis
   goals:
-  - Ensure system complies with all relevant regulations
-  - Maintain audit trails and documentation for regulatory inspections
+  - Ensure losses never exceed acceptable thresholds under market volatility
+  - Prevent regulatory violations and market manipulation violations
   typical_questions:
-  - Does our fraud detection system meet all regulatory requirements for our jurisdictions?
-  - How do we document our model decisions for regulatory review?
-DataEngineer:
-  role_description: Builds and maintains the data infrastructure and pipelines that
-    feed the fraud detection system
+  - What are our maximum portfolio Greeks exposures and concentration limits?
+  - How do we handle circuit breaker scenarios and flash crash events?
+SystemArchitect:
+  role_description: Designs the overall infrastructure, data pipelines, and connectivity
+    for the trading system
   expertise_list:
-  - ETL pipeline development
+  - Distributed systems design
   - Real-time data streaming
-  - Data quality management
-  - Database optimization
+  - Exchange connectivity
+  - System reliability and failover
   goals:
-  - Ensure data availability and accuracy for model training and inference
-  - Build scalable pipelines that process transactions in real-time
+  - Build a scalable, fault-tolerant system that can handle market data at peak volumes
+  - Ensure 99.99%+ uptime with automatic recovery mechanisms
   typical_questions:
-  - How do we efficiently process and store millions of transaction records?
-  - What's the latency requirement for fraud detection in our system?
-SecurityArchitect:
-  role_description: Designs secure infrastructure and protects the fraud detection
-    system from attacks and unauthorized access
+  - How do we replicate market feeds across multiple data centers for redundancy?
+  - What's our technology stack for data ingestion and order routing?
+DataEngineer:
+  role_description: Manages market data acquisition, storage, and quality assurance
+    for backtesting and live trading
   expertise_list:
-  - API security
-  - Data encryption and protection
-  - Access control systems
-  - Threat modeling
+  - Time-series databases
+  - Data validation and cleansing
+  - Market data APIs
+  - Historical data management
   goals:
-  - Protect sensitive fraud detection models and customer data from breaches
-  - Ensure the system itself is resistant to adversarial attacks
+  - Ensure accurate, complete, and timely market data for both research and production
+    systems
+  - Maintain data integrity across multiple feeds and exchanges
   typical_questions:
-  - How do we prevent malicious actors from gaming the fraud detection system?
-  - What security measures must we implement around model access and data handling?
-ProductManager:
-  role_description: Defines requirements and ensures the fraud detection system meets
-    business objectives and user needs
+  - How do we detect and handle gaps or anomalies in market data?
+  - What's our data retention policy and disaster recovery plan?
+ComplianceOfficer:
+  role_description: Ensures the trading bot adheres to regulatory requirements and
+    market rules across jurisdictions
   expertise_list:
-  - Product strategy
-  - Stakeholder management
-  - User experience design
-  - Business metrics and KPIs
+  - Securities regulations (SEC, FCA, FINRA)
+  - Market conduct rules
+  - Reporting requirements
+  - Audit trails and record-keeping
   goals:
-  - Balance fraud prevention with customer experience and operational efficiency
-  - Measure and communicate system ROI to leadership
+  - Prevent regulatory violations and maintain trading licenses
+  - Ensure transparent audit trails for all trading activity
   typical_questions:
-  - What is the acceptable trade-off between blocking legitimate transactions and
-    catching fraud?
-  - How do we measure success of the fraud detection system?
-BackendEngineer:
-  role_description: Implements and integrates the fraud detection system into production
-    fintech applications
+  - Are we compliant with spoofing and layering prohibitions under Dodd-Frank?
+  - What reporting obligations do we have to regulators for our trading activity?
+DevOpsEngineer:
+  role_description: Manages deployment, monitoring, logging, and operational stability
+    of the trading system in production
   expertise_list:
-  - System integration
-  - API development
-  - Performance optimization
-  - Microservices architecture
+  - Kubernetes and containerization
+  - System monitoring and alerting
+  - CI/CD pipelines
+  - Incident response and debugging
   goals:
-  - Integrate fraud detection seamlessly into payment and transaction workflows
-  - Ensure sub-second response times for fraud decisions
+  - Maintain system uptime and quickly resolve operational issues
+  - Provide visibility into system health and performance metrics
   typical_questions:
-  - How do we integrate real-time fraud scoring into our transaction processing pipeline?
-  - What's our fallback strategy if the fraud detection system is unavailable?
+  - What's our alerting strategy for detecting degraded performance or anomalies?
+  - How do we safely deploy changes to a live trading system?
