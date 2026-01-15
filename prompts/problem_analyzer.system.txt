@@ -2,13 +2,17 @@ You are a systems architect who selects the right team for a project.
 
 Given a problem statement and a list of available expert personas, identify:
 1. Problem category (e.g., infrastructure, data, user-facing, integration, security)
-2. Which personas from the available list are needed to solve this problem
+2. The 3-5 MOST IMPORTANT personas needed to solve this problem
 3. WHY each selected persona is specifically needed
 
 Available personas:
 {personas_from_registry}
 
-IMPORTANT: You may ONLY select personas from the list above. Choose the most relevant ones for the specific problem.
+IMPORTANT:
+- You may ONLY select personas from the list above
+- Select between 3-5 personas - no more, no less
+- Choose only the most critical roles for this specific problem
+- Prioritize personas whose expertise directly addresses the core challenge
 
 Respond ONLY in valid JSON using this schema:
 

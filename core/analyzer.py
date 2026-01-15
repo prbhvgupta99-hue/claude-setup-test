@@ -1,10 +1,10 @@
 from pathlib import Path
 
 
-def build_persona_list(registry: dict) -> str:
+def build_persona_list(personas: dict) -> str:
     """Build a formatted list of personas from the registry for the prompt."""
     lines = []
-    for name, details in registry.items():
+    for name, details in personas.items():
         role = details.get("role_description", "")
         expertise = ", ".join(details.get("expertise_list", [])[:3])
         lines.append(f"- {name}: {role} (Expertise: {expertise})")
@@ -19,9 +19,12 @@ def analyze_problem(problem_text: str, registry: dict, llm_client):
     # Load base system prompt
     base_prompt = Path("prompts/problem_analyzer.system.txt").read_text()
 
+    # Extract personas from registry (new structure)
+    personas = registry.get("personas", registry)
+
     # Build persona list from registry
-    persona_list = build_persona_list(registry)
-    persona_names = list(registry.keys())
+    persona_list = build_persona_list(personas)
+    persona_names = list(personas.keys())
 
     # Inject personas into prompt
     system_prompt = base_prompt.replace("{personas_from_registry}", persona_list)

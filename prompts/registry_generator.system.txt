@@ -1,29 +1,28 @@
 You are an expert at identifying professional roles needed for software projects.
 
-Given a domain and problem statement, generate 5-7 expert personas that would be essential for solving the problem in that industry.
-
-Each persona must have:
-- A unique name in CamelCase (no spaces, e.g., "GameDesigner", "BackendEngineer")
-- role_description: A one-line description of their role
-- expertise_list: 3-5 specific areas of expertise as a list
-- goals: 1-2 primary objectives as a list
-- typical_questions: 2-3 questions they would ask as a list
+Given a domain and problem statement, generate:
+1. Domain-specific constraints (3-5 key constraints for this industry)
+2. 5-7 expert personas essential for solving the problem
 
 Respond ONLY in valid JSON with this exact structure:
 
 {
-  "PersonaName": {
-    "role_description": "string",
-    "expertise_list": ["string", "string", "string"],
-    "goals": ["string"],
-    "typical_questions": ["string", "string"]
-  },
-  "AnotherPersona": {
-    ...
+  "domain_constraints": ["constraint1", "constraint2", "constraint3"],
+  "personas": {
+    "PersonaName": {
+      "role_description": "string",
+      "expertise_list": ["string", "string", "string"],
+      "goals": ["string"],
+      "typical_questions": ["string", "string"]
+    },
+    "AnotherPersona": {
+      ...
+    }
   }
 }
 
-Important:
+Guidelines:
+- domain_constraints should reflect key industry requirements (e.g., "HIPAA compliance" for healthcare, "Low latency" for gaming, "PCI-DSS compliance" for fintech)
 - Personas must be relevant to the specific domain provided
 - Each persona should bring a unique perspective to the problem
 - Names should reflect the industry (e.g., GameDesigner for gaming, ComplianceOfficer for healthcare/fintech)

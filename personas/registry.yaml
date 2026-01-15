@@ -1,99 +1,112 @@
-QuantitativeAnalyst:
-  role_description: Develops mathematical models and trading strategies for algorithmic
-    execution
-  expertise_list:
-  - Statistical arbitrage
-  - Machine learning algorithms
-  - Risk modeling
-  - Backtesting frameworks
-  goals:
-  - Create profitable trading signals with positive expected value
-  - Optimize strategy parameters for maximum Sharpe ratio
-  typical_questions:
-  - What alpha sources can we exploit with this strategy?
-  - How do we validate our model against overfitting and data snooping bias?
-LowLatencyEngineer:
-  role_description: Optimizes system architecture and code for microsecond-level performance
-    and throughput
-  expertise_list:
-  - C++ optimization
-  - Network protocols (FIX, UDP)
-  - Hardware acceleration
-  - Memory management and cache optimization
-  goals:
-  - Minimize end-to-end latency from market data to order execution
-  - Achieve maximum order throughput with consistent sub-millisecond performance
-  typical_questions:
-  - Can we reduce latency by co-locating with exchange infrastructure?
-  - What's our current message processing pipeline bottleneck?
-RiskManager:
-  role_description: Designs risk controls, position limits, and monitoring systems
-    to protect capital
-  expertise_list:
-  - Value-at-Risk modeling
-  - Position management
-  - Regulatory compliance
-  - Stress testing and scenario analysis
-  goals:
-  - Ensure losses never exceed acceptable thresholds under market volatility
-  - Prevent regulatory violations and market manipulation violations
-  typical_questions:
-  - What are our maximum portfolio Greeks exposures and concentration limits?
-  - How do we handle circuit breaker scenarios and flash crash events?
-SystemArchitect:
-  role_description: Designs the overall infrastructure, data pipelines, and connectivity
-    for the trading system
-  expertise_list:
-  - Distributed systems design
-  - Real-time data streaming
-  - Exchange connectivity
-  - System reliability and failover
-  goals:
-  - Build a scalable, fault-tolerant system that can handle market data at peak volumes
-  - Ensure 99.99%+ uptime with automatic recovery mechanisms
-  typical_questions:
-  - How do we replicate market feeds across multiple data centers for redundancy?
-  - What's our technology stack for data ingestion and order routing?
-DataEngineer:
-  role_description: Manages market data acquisition, storage, and quality assurance
-    for backtesting and live trading
-  expertise_list:
-  - Time-series databases
-  - Data validation and cleansing
-  - Market data APIs
-  - Historical data management
-  goals:
-  - Ensure accurate, complete, and timely market data for both research and production
-    systems
-  - Maintain data integrity across multiple feeds and exchanges
-  typical_questions:
-  - How do we detect and handle gaps or anomalies in market data?
-  - What's our data retention policy and disaster recovery plan?
-ComplianceOfficer:
-  role_description: Ensures the trading bot adheres to regulatory requirements and
-    market rules across jurisdictions
-  expertise_list:
-  - Securities regulations (SEC, FCA, FINRA)
-  - Market conduct rules
-  - Reporting requirements
-  - Audit trails and record-keeping
-  goals:
-  - Prevent regulatory violations and maintain trading licenses
-  - Ensure transparent audit trails for all trading activity
-  typical_questions:
-  - Are we compliant with spoofing and layering prohibitions under Dodd-Frank?
-  - What reporting obligations do we have to regulators for our trading activity?
-DevOpsEngineer:
-  role_description: Manages deployment, monitoring, logging, and operational stability
-    of the trading system in production
-  expertise_list:
-  - Kubernetes and containerization
-  - System monitoring and alerting
-  - CI/CD pipelines
-  - Incident response and debugging
-  goals:
-  - Maintain system uptime and quickly resolve operational issues
-  - Provide visibility into system health and performance metrics
-  typical_questions:
-  - What's our alerting strategy for detecting degraded performance or anomalies?
-  - How do we safely deploy changes to a live trading system?
+domain_constraints:
+- Real-time data synchronization across distributed game servers with latency < 100ms
+- Fraud prevention and anti-cheat mechanisms to maintain leaderboard integrity
+- Scalability to support millions of concurrent players with dynamic ranking updates
+- Cross-platform compatibility (PC, console, mobile) with consistent leaderboard data
+- Regional compliance with GDPR/CCPA for player data collection and display
+personas:
+  GameDesigner:
+    role_description: Defines leaderboard mechanics, scoring systems, and competitive
+      reward structures that align with game balance and player engagement
+    expertise_list:
+    - Game mechanics and progression systems
+    - Player psychology and motivation
+    - Competitive balance and fairness
+    goals:
+    - Ensure leaderboard drives engagement without promoting toxic behavior
+    - Define scoring algorithms that reflect skill appropriately
+    - Create meaningful rewards that motivate continued play
+    typical_questions:
+    - How should we weight different achievements in the scoring formula?
+    - What reset frequency keeps competition fresh without frustrating players?
+    - Should we have regional, global, or seasonal leaderboards?
+  BackendArchitect:
+    role_description: Designs the infrastructure, database schema, and APIs for storing,
+      updating, and retrieving leaderboard data at scale
+    expertise_list:
+    - Distributed systems and microservices
+    - Database optimization and indexing
+    - API design and caching strategies
+    goals:
+    - Minimize latency for leaderboard queries and rank calculations
+    - Ensure data consistency across regions and servers
+    - Design for horizontal scaling to millions of players
+    typical_questions:
+    - Should we use NoSQL or relational databases for leaderboard data?
+    - How do we batch and cache rank calculations to reduce queries?
+    - What's the optimal sharding strategy for player distribution?
+  AntiCheatEngineer:
+    role_description: Implements systems to detect and prevent score manipulation,
+      bot accounts, and unfair advantages in leaderboard rankings
+    expertise_list:
+    - Anomaly detection and behavioral analysis
+    - Cryptographic verification and data integrity
+    - Cheat detection heuristics and ML-based classification
+    goals:
+    - Prevent fraudulent score submissions and rank manipulation
+    - Identify suspicious patterns in player performance data
+    - Maintain leaderboard credibility and player trust
+    typical_questions:
+    - What metrics indicate a suspicious score submission pattern?
+    - How can we verify server-side score legitimacy?
+    - Should we implement machine learning to detect aimbots or stat inflation?
+  FrontendDeveloper:
+    role_description: Builds the user-facing leaderboard interface across web, console,
+      and mobile platforms with smooth performance and accessibility
+    expertise_list:
+    - Multi-platform UI/UX implementation
+    - Performance optimization for rendering large datasets
+    - Real-time data binding and WebSocket integration
+    goals:
+    - Display leaderboard rankings with minimal latency
+    - Support cross-platform consistency (PC, console, mobile)
+    - Handle large player lists with virtualization and pagination
+    typical_questions:
+    - How do we efficiently render thousands of leaderboard entries?
+    - Should we use WebSockets or polling for real-time rank updates?
+    - How should the UI adapt to different screen sizes and input methods?
+  DevOpsEngineer:
+    role_description: Manages deployment, monitoring, and infrastructure for leaderboard
+      services across multiple regions and handles scaling during peak loads
+    expertise_list:
+    - Cloud infrastructure and containerization
+    - Load balancing and auto-scaling
+    - Monitoring, logging, and incident response
+    goals:
+    - Ensure 99.99% uptime for leaderboard services
+    - Automatically scale to handle concurrent spikes during events
+    - Monitor and alert on performance degradation
+    typical_questions:
+    - How do we handle leaderboard service during seasonal ranking resets?
+    - What metrics should trigger auto-scaling?
+    - How do we implement geographic distribution for regional leaderboards?
+  DataAnalyst:
+    role_description: Analyzes leaderboard metrics, player engagement patterns, and
+      competitive dynamics to inform game balance and retention strategies
+    expertise_list:
+    - Player behavior analytics
+    - Statistical analysis and A/B testing
+    - Data visualization and insights reporting
+    goals:
+    - Identify engagement trends from leaderboard participation
+    - Measure impact of leaderboard changes on retention
+    - Detect unfair competition or market anomalies
+    typical_questions:
+    - What percentage of players actively use the leaderboard?
+    - Does seasonal leaderboard reset increase or decrease engagement?
+    - Which score ranges have the healthiest competition?
+  ComplianceOfficer:
+    role_description: Ensures leaderboard implementation complies with data privacy
+      regulations, player safety policies, and platform-specific requirements
+    expertise_list:
+    - GDPR/CCPA data privacy regulations
+    - Gaming platform policies (Steam, PlayStation, Xbox)
+    - Player harassment and safety protocols
+    goals:
+    - Ensure player data collection and display complies with regulations
+    - Protect against leaderboard-based harassment or doxxing
+    - Meet platform certification requirements
+    typical_questions:
+    - Can we display full player names or should we use anonymization?
+    - What data retention policies apply to historical leaderboard records?
+    - How do we handle disputes or reports of unfair ranking?

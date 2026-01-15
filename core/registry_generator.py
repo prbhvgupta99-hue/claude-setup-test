@@ -2,29 +2,43 @@ import yaml
 from pathlib import Path
 
 REGISTRY_PATH = Path("personas/registry.yaml")
+AGENTS_DIR = Path("agents")
+
+
+def clear_previous_session():
+    """Clear registry and agents from previous session."""
+    # Remove old registry
+    if REGISTRY_PATH.exists():
+        REGISTRY_PATH.unlink()
+
+    # Clear old agent files
+    if AGENTS_DIR.exists():
+        for agent_file in AGENTS_DIR.glob("*.md"):
+            agent_file.unlink()
+
 
 def generate_registry(domain: str, problem: str, llm_client) -> dict:
     """
-    LLM Call 1: Generate 5-7 personas relevant to domain + problem.
-    Saves to personas/registry.yaml and returns the registry dict.
+    LLM Call 1: Generate domain constraints and 5-7 personas.
+    Saves to personas/registry.yaml and returns the full registry dict.
     """
+    # Clear previous session data
+    clear_previous_session()
+
     system_prompt = Path("prompts/registry_generator.system.txt").read_text()
 
     user_prompt = f"""Domain: {domain}
 Problem: {problem}
 
-Generate 5-7 expert personas that would be needed to solve this problem in the {domain} industry."""
+Generate domain-specific constraints and 5-7 expert personas for the {domain} industry."""
 
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt}
     ]
 
-    # LLM returns YAML string
     response = llm_client(messages)
 
-    # Response is already parsed as dict from claude_call
-    # But we need raw YAML, so we'll modify claude.py or handle it here
     if isinstance(response, dict):
         registry = response
     else:
@@ -35,7 +49,8 @@ Generate 5-7 expert personas that would be needed to solve this problem in the {
     with open(REGISTRY_PATH, "w") as f:
         yaml.dump(registry, f, default_flow_style=False, sort_keys=False)
 
-    print(f"Generated registry with {len(registry)} personas for '{domain}' domain")
+    persona_count = len(registry.get("personas", {}))
+    print(f"Generated registry with {persona_count} personas for '{domain}' domain")
     return registry
 
 

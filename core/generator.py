@@ -1,5 +1,4 @@
 # generator.py
-import os
 from pathlib import Path
 import yaml
 from jinja2 import Environment, FileSystemLoader
@@ -25,7 +24,11 @@ def generate_agents(problem_text, analysis, output_dir="agents/"):
     All files go directly into `agents/` folder. No subfolders.
     """
     # Load registry at runtime (after it's been generated)
-    personas_registry = load_registry()
+    full_registry = load_registry()
+
+    # Extract personas and constraints from new structure
+    personas_registry = full_registry.get("personas", full_registry)
+    domain_constraints = full_registry.get("domain_constraints", [])
 
     personas = analysis.get("required_personas", [])
 
@@ -55,7 +58,8 @@ def generate_agents(problem_text, analysis, output_dir="agents/"):
             expertise_list=expertise,
             goals=goals,
             problem_specific_reason=reason,
-            typical_questions=questions
+            typical_questions=questions,
+            constraints=domain_constraints
         )
 
         # Save file (remove spaces for filenames)
